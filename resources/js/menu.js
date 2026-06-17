@@ -15,6 +15,5 @@ function ocultarMenu(){
         menu.classList.remove("ocultarMenu");
     }else{
         menu.classList.add("ocultarMenu");
-    }
-   
+    }   
 }
