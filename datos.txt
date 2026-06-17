@@ -1,0 +1,77 @@
+-crear tablas : usuarios , empleados, categorias, descripcion para tickect . 
+-activar seguridad en dos pasos en la cuenta de google.
+-stylo, colores de pagina.
+-historial de tikect en pagina.
+-quiene envio los tickets.
+-usuario admin y normal.
+-stylo, colores de pagina.(le pido a katy)
+
+roles admin, normal 
+=============================
+-area (tabla) = nombre
+-nombre()
+-empresa (tabla)
+
+
+Colaborador
+Empresa (150Beats, Omega, Voz-X y Nova)
+Área (BO / Operaciones / RRHH / Logistica / Gerencia)
+
+============================
+============================
+Tabla : area 
+area-codigo
+area-nombre
+
+===============
+Tabla : empresa
+empresa-codigo
+empresa-nombre
+
+===========
+tabla : rol
+rol-codigo
+rol-nombre
+rol-descripcion
+
+=============
+Tabla : empleado
+empleado-codigo
+empleado-nombre
+empleado-area-codigo
+empleado-empresa-codigo
+empleado-rol-codigo
+
+=========
+Tabla : usuario 
+usuario-codigo
+usuario-nombre
+usuario-contraseña
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
