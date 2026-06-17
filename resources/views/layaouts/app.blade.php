@@ -13,9 +13,9 @@
     
     @include('menu.nav')
 
-    <main>
+  
         @yield('content')
-    </main>
+    
 
 
 

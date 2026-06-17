@@ -5,8 +5,8 @@
     </div>
     <div class="cuerpoMenu">
         <ul>
-            <li><a href="">Generar ticket</a></li>
-            <li><a href="">Lista 1</a></li>
+            <li><a href="#">Generar ticket</a></li>
+            <li><a href="#">Crear usuario</a></li>
             <li><a href="">Lista 1</a></li>
             <li><a href="">Lista 1</a></li>
         </ul>

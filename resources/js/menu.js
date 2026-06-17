@@ -1,13 +1,20 @@
 document.addEventListener('DOMContentLoaded',function(){
 
+    //Obtener boton hamburguesa
+    document.getElementById("btnHamburguesa").addEventListener('click',function(){
+        ocultarMenu();
+    })
 })
 
-
 function ocultarMenu(){
-    //Obtener boton hamburguesa
-    var btnHamburguesa = document.getElementById("btnHamburguesa"); 
+    
     //Obtener menu
-    var menu = document.getElementsByClassName("fondoMenu");
+    var menu = document.querySelector(".fondoMenu");
 
+    if(menu.classList.contains("ocultarMenu")){
+        menu.classList.remove("ocultarMenu");
+    }else{
+        menu.classList.add("ocultarMenu");
+    }
    
 }
