@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('area', function (Blueprint $table) {
-            $table->char("area_codigo",7); //ARE0001
+            $table->char("area_codigo",7)->primary(); //ARE0001
             $table->string("area_nombre",100);
+            $table->enum('area_estado',['A','E'])->default('A');//A=Activo ; E=Eliminado
             $table->timestamps();
         });
     }

@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class area extends Model
+class Area extends Model
 {
     protected $table = "area";
     protected $primaryKey = "area_codigo";
-    protected $keyType = "char";
+    protected $keyType = "string";
     public $incrementing = false;
 
     protected $fillable = [
