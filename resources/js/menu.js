@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded',function(){
     document.getElementById("btnHamburguesa").addEventListener('click',function(){
         ocultarMenu();
     })
+
+    document.getElementById("btnEnviarLogin").addEventListener('click',function(){
+        enviarLogin();
+    })
+
+
 })
 
 function ocultarMenu(){
@@ -16,4 +22,8 @@ function ocultarMenu(){
     }else{
         menu.classList.add("ocultarMenu");
     }   
+}
+
+function enviarLogin(){
+    window.location.href="/";
 }

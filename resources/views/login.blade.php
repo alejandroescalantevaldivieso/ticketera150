@@ -21,7 +21,7 @@
        <div class="cuerpoLogin">
             <input class="inputBaseUno" type="" placeholder="Ingresa usuario">
             <input class="inputBaseUno" type="" placeholder="Ingresa contraseña">
-            <button class="botonBaseUno">INICIAR</button>
+            <button id="btnIniciar" class="botonBaseUno">INICIAR</button>
        </div>
     </div>
 

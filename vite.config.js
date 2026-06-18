@@ -10,7 +10,11 @@ export default defineConfig({
                 'resources/js/login.js',
                 'resources/css/general.css',
                 'resources/css/menu.css',
-                'resources/css/principal.css'
+                'resources/js/menu.js',
+                'resources/css/principal.css',
+                'resources/js/pricipal.js',
+                'resources/css/area.css',
+                'resources/js/area.js'
             ],
             refresh: true,
         }),
