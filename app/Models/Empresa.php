@@ -8,10 +8,12 @@ class Empresa extends Model
 {
     protected $table = "empresa";
     protected $primaryKey =  "empresa_codigo"; 
-    protected $keyType = "char";
+    protected $keyType = "string";
     public $incrementing = false;
+    
     protected $fillable =[
         'empresa_codigo',
-        'empresa_nombre'
+        'empresa_nombre',
+        'empresa_estado'
     ];
 }

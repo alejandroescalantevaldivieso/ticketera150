@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('empresa', function (Blueprint $table) {
-            $table->char('empresa_codigo',7);//EPS0001
-            $table->string('empresa_nombre',100);
+            $table->char('empresa_codigo',7)->primary();//EPS0001
+            $table->string('empresa_nombre',100)->unique();
+            $table->enum('empresa_estado',['A','E'])->default('A');
             $table->timestamps();
         });
     }

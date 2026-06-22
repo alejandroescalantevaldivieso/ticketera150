@@ -1,0 +1,13 @@
+
+
+/* ===== contenedor botones ===== */
+.contenedorBoton{    
+    background-color: red;
+    
+    height: 120px;
+
+}
+.botonBaseUno{
+    padding: 5px;
+}
+

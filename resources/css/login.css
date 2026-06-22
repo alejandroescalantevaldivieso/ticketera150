@@ -3,48 +3,70 @@ html, body{
     padding: 0;
     width: 100%;
     height: 100%;
-    display: flex;    
+    display: flex;
     justify-content: center;
-    align-items: center;  
+    align-items: center;
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #f5f7fa;
 }
 
 .fondoLogin{
-    width: 300px;
-    height: 300px;    
-    border: 1px solid rgb(177, 173, 173);   
-    border-top-right-radius: 80px;
+    width: 350px;
+    background: white;
+    border-radius: 12px;
+    border-top: 5px solid #F6A732;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
 }
-
 
 .cabeceraLogin{
     width: 100%;
-    height: 100px;   
+    height: 100px;
     display: flex;
     align-items: center;
-}
-.cabeceraLogin img{
-    width: 90px;
-}
-.cabeceraLogin h1{
-    font-size: 35px;
-    margin-left: 10px;
+    justify-content: center;
+    border-bottom: 1px solid #e5e5e5;
 }
 
+.cabeceraLogin img{
+    width: 75px;
+}
+
+.cabeceraLogin h1{
+    font-size: 32px;
+    margin-left: 10px;
+    margin-bottom: 0;
+    color: #1E3666;
+    font-weight: 700;
+}
 
 .cuerpoLogin{
-    width: 100%;
-    height: 200px;    
+    padding: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
+
 .cuerpoLogin input{
-    width: 80%;
-    margin-top: 10px;
+    width: 100%;
+    margin-top: 12px;
+    border: 1px solid #dcdcdc;
 }
+
+.cuerpoLogin input:focus{
+    border-color: #005D75;
+}
+
 .cuerpoLogin button{
-    margin-top: 50px;
-    width: 150px;
+    width: 100%;
+    margin-top: 25px;
+    background-color: #1E3666;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+    transition: .2s;
+}
+
+.cuerpoLogin button:hover{
+    background-color: #005D75;
 }

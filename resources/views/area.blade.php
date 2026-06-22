@@ -28,30 +28,55 @@
     </div>
 
     <!-- Tabla -->
-     <div class="container mt-4">
+    <div class="container mt-4">     
+        <div class="contenedorBotones row mt-4">
+            <div class="col-12 col-md-4 col-lg-2 text-center mb-1">
+                <button id="btnVerActivos" class="botonBaseUno me-2 w-100 ">
+                    Activos
+                </button>
 
-        <div class="d-flex justify-content-end mb-3">
-            <button id="btnVerEliminados" class="botonBaseUno me-2">
-                Eliminados
-            </button>
+            </div>
+            <div class="col-12 col-md-4 col-lg-2 text-center mb-1">
+                <button id="btnVerEliminados" class="botonBaseUno me-2 w-100">
+                    Eliminados
+                </button>
 
-            <button id="btnMostrarRegistrar" class="botonBaseUno">
-                Registrar
-            </button>
+            </div>
+            <div class="col-12 col-md-4 col-lg-2 text-center mb-3">
+                <button id="btnMostrarRegistrar" class="botonBaseUno w-100">
+                    Registrar
+                </button>
+
+            </div>
+
+        </div>   
+
+        <div class="table-responsive">
+            <!-- tabla area -->
+            <table id="tblArea" class="tablaBaseUno">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>                                                      
+                    </tr>
+                </thead>
+                <tbody>                                           
+                </tbody>
+            </table>
+            <!-- tabla area eliminados -->
+            <div class="tblAreaEliminado ocultar">
+                <h1 class="mt-5">Areas eliminadas</h1>
+                <table id="tblAreaEliminado" class="tablaBaseUno">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Nombre</th>                                                      
+                        </tr>
+                    </thead>
+                    <tbody>                                           
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <table class="table tablaBaseUno">
-            <thead>
-                <tr>
-                    <th>Código</th>
-                    <th>Nombre</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>                                
-            </tbody>
-        </table>
-
     </div>
 @endsection

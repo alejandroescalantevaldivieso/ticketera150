@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegistrarAreaRequest;
-use App\Http\Requests\ActualizarAreaRequest;
+use App\Http\Requests\AreaRegistrarRequest;
+use App\Http\Requests\AreaActualizarRequest;
 use App\Services\AreaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -17,7 +17,7 @@ class AreaController
         $this->areaService = $areaService;
     }
 
-   public function registrar(RegistrarAreaRequest $request){
+   public function registrar(AreaRegistrarRequest $request){
        try{
             $area = $this->areaService->registrar($request->validated());
 
@@ -28,7 +28,7 @@ class AreaController
             return response()->json(['exito'=>false,'mensaje'=>'Error al resgistrar area']);
         }
    }
-   public function actualizar(ActualizarAreaResquest $request){
+   public function actualizar(AreaActualizarRequest $request){
         try{
             $this->areaService->actualizar($request->validated());
 
@@ -38,7 +38,6 @@ class AreaController
             return response()->json(['exito'=>false, 'mensaje'=>'Error al actualizar area']);
         }
    }
-
    public function eliminar(Request $request){
         try{
             $this->areaService->eliminar($request->input('area_codigo'));
@@ -50,7 +49,6 @@ class AreaController
             return response()->json(['exito'=>false, 'mensaje'=>'Error al eliminar area']);
         }
    }
-
    public function recuperar(Request $request){
         try{
             $this->areaService->recuperar($request->input('area_codigo'));
@@ -61,18 +59,20 @@ class AreaController
             return response()->json(['exito'=>false, 'mensaje'=>'Error al recuperar area']);
         }
    }
-
    public function listar(){
         try{
             $area = $this->areaService->listar();
-            
-            return response()->json(['exito'=>true, 'mensaje'=>$area]);
+            if($area->isEmpty()){
+                return response()->json(['exito'=>false, 'mensaje'=>"No hay Areas registradas"]);
+            }else{
+                return response()->json(['exito'=>true, 'mensaje'=>$area]);
+
+            }
         }catch(\Exception $e){
             Log::error($e->getMessage());
             return response()->json(['exito'=>false, 'mensaje'=>'Error al recuperar area']);
         }
    }
-
    public function listarEliminado(){
         try{
             $area = $this->areaService->listarEliminado();
@@ -85,5 +85,15 @@ class AreaController
    }
    public function vistaArea(){
         return view('area');
+   }
+   public function ultimoCodigo(){
+        try{
+            $codigo = $this->areaService->ultimoCodigo();
+            return response()->json(['exito'=>true,'mensaje'=>$codigo]);
+            
+        }catch(\Exception $e){
+            Log::error($e->getMessage());
+            return response()->json(['exito'=>false,'mensaje'=>"Error al obtener el ultimo codigo"]);
+        }
    }
 }

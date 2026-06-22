@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ActualizarAreaRequest extends FormRequest
+class EmpleadoActualizarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,15 +22,11 @@ class ActualizarAreaRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [            
-            'area_nombre' => 'required|string|max:100'
-        ];
-    }
-
-    public function messages():array{
-        return[            
-            'area_nombre.required' => 'El nombre es obligatorio',
-            'area_nombre.max' => 'El nombre no debe sobrepasar 100 caracteres'
+        return [
+            'empleado_codigo' => 'required|max:7|string',
+            'empleado_nombre' => 'required|max:7|string',
+            'empleado_area_codigo' => 'required|max:7|string',
+            'empleado_empresa_codigo' => 'required|max:7|string',
         ];
     }
 }

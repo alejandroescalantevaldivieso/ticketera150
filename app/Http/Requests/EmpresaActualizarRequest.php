@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RegistrarAreaRequest extends FormRequest
+class EmpresaActualizarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +22,16 @@ class RegistrarAreaRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [            
-            'area_nombre' => 'required|string|max:100|unique:area,area_nombre'
+        return [
+            'empresa_codigo' => 'required|string|max:7',
+            'empresa_nombre' => 'required|string|max:100|unique:empresa,empresa_nombre'
         ];
     }
-
-    public function messages():array{
-        return[
-            // 'area_codigo.required' =>'El codigo es obligatorio',
-            // 'area_codigo.max' => 'El codigo deber tener 7 caracteres',
-            'area_nombre.required' => 'El nombre es obligatorio',
-            'area_nombre.max' => 'El nombre no debe sobrepasar 100 caracteres'
+    public function messages(): array{
+        return [
+            'empresa_codigo.required' => 'El codigo es obligatorio',
+            'empresa_nombre.required' => 'El nombre es obligatorio',
+            'empresa_nombre.unique' => 'Cambia la empresa'
         ];
     }
 }

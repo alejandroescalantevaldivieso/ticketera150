@@ -9,6 +9,15 @@ document.addEventListener('DOMContentLoaded',function(){
         enviarLogin();
     })
 
+    const botones = document.querySelectorAll('.botonBaseUno');
+
+    botones.forEach(boton => {
+        boton.addEventListener('click', () => {
+            botones.forEach(b => b.classList.remove('botonActivo'));
+            boton.classList.add('botonActivo');
+        });
+    });
+
 
 })
 
@@ -25,5 +34,5 @@ function ocultarMenu(){
 }
 
 function enviarLogin(){
-    window.location.href="/";
+    window.location.href="/principal";
 }

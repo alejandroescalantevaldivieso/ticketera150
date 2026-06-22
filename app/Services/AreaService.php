@@ -5,6 +5,9 @@ namespace App\Services;
 use App\Models\Area;
 
 class AreaService{
+    public function ultimoCodigo(){
+        return generarCodigo('ARE',Area::class,'area_codigo');
+    }
     public function registrar(array $data){
         $data['area_codigo'] =  generarCodigo('ARE',Area::class,'area_codigo');
         return Area::create($data);
