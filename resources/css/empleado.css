@@ -1,13 +1,16 @@
-
-
 /* ===== contenedor botones ===== */
-.contenedorBoton{    
-    background-color: red;
-    
-    height: 120px;
-
+.contenedorBoton{       
+    margin: 0;    
+    overflow-y: hidden;
 }
 .botonBaseUno{
     padding: 5px;
 }
-
+.table-responsive{   
+    width: 100%;
+    max-height: 50%;
+}
+.table-responsive::-webkit-scrollbar{
+    width: 0;
+    height: 0;
+}
