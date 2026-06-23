@@ -11,11 +11,14 @@ class Empleado extends Model
     protected $table = "empleado";
     protected $primaryKey = "empleado_codigo";
     public $keyType = "string";
-    protected $incrementing = false;
+    public $incrementing = false;
 
     protected $fillable =[
         'empleado_codigo',
         'empleado_nombre',
+        'empleado_apellido_paterno',
+        'empleado_apellido_materno',
+        'empleado_correo',
         'empleado_area_codigo',
         'empleado_empresa_codigo'
     ];

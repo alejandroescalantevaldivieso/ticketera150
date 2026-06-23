@@ -44,6 +44,9 @@ Tabla base uno
 .tablaBaseUno tbody tr:hover{
     background-color: rgb(235, 235, 235);   
 }    
+.tablaBaseUno thead tr th{
+    white-space: nowrap;
+}
 .tablaBaseUno thead tr,
 .tablaBaseUno tbody tr{
     border-bottom: 1px solid rgb(206, 206, 206);

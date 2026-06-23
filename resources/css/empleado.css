@@ -1,16 +1,112 @@
+.contenedorDatos{
+    width: 100%;
+    height: 100%;    
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+}
 /* ===== contenedor botones ===== */
 .contenedorBoton{       
-    margin: 0;    
-    overflow-y: hidden;
+    margin: 0;       
 }
 .botonBaseUno{
-    padding: 5px;
+    padding: 3px;
 }
+/* ===== contenedor de tabla ===== */
 .table-responsive{   
-    width: 100%;
-    max-height: 50%;
+    width: 100%;   
 }
 .table-responsive::-webkit-scrollbar{
     width: 0;
     height: 0;
+}
+.contenedorTabla{
+    width: 100%;
+    height: 70%;
+    margin: 0;
+    padding: 0;   
+    overflow-y: auto;
+}
+
+/* ===== Modulo registrar ===== */
+.contenedorGeneral{
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.279);
+    backdrop-filter: blur(3px);
+}
+.moduloRegistrarEmpleado{
+    position: fixed;
+    z-index: 1001;
+    width:400px;   
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    top:calc(50% - 200px);
+    left: calc(50% - 200px);
+    padding: 20px;
+}
+
+.moduloArea{
+    position: fixed;
+    z-index: 1002;
+    width:400px; 
+    height: 400px;  
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    top:calc(50% - 200px);
+    left: calc(50% - 200px);
+    padding: 20px;
+}
+
+.moduloEmpresa{
+    position: fixed;
+    z-index: 1003;
+    width:400px; 
+    height: 400px;  
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    top:calc(50% - 200px);
+    left: calc(50% - 200px);
+    padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rojo{
+    background-color: red;
+}
+.negro{
+    background-color: rgb(0, 0, 0);
+}
+.azul{
+    background-color: blue;
 }

@@ -127,9 +127,7 @@ async function listar(){
             const btnEliminar = fila.insertCell();
             btnEliminar.innerHTML = "<img src='/imagen/iconoEliminar.png'>";
             btnEliminar.addEventListener('click',function(){eliminar(empresas[i])});
-
-        }
-        
+        }        
     }else{                
         alerta(respuesta.mensaje, false);
     }

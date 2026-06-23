@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 use App\Services\EmpleadoService;
-use App\Requests\EmpleadoRegistrarRequest;
-use App\Requests\EmpleadoActualizarRequest;
+use App\Http\Requests\EmpleadoRegistrarRequest;
+use App\Http\Requests\EmpleadoActualizarRequest;
 
 
 class EmpleadoController
@@ -66,7 +66,7 @@ class EmpleadoController
         try{
             $empleado = $this->empleadoService->listar();
 
-            if($empleado->isEmpty){
+            if($empleado->isEmpty()){
                 return response()->json(['exito'=>false,'mensaje'=>'No hay empleado registrados']);
             }
 

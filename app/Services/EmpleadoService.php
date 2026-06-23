@@ -18,7 +18,8 @@ class EmpleadoService{
         return Empleado::where('empleado_codigo',$empleado_codigo)->update(['empleado_estado' => 'A']);
     }
     public function listar(){
-        return Empleado::where('empleado_estado','A')->get();
+        // return Empleado::where('empleado_estado','A')->get();
+        return Empleado::with(['area', 'empresa'])->where('empleado_estado', 'A')->get();
     }
     public function listarEliminado(){
         return Empleado::where('empleado_estado','E')->get();

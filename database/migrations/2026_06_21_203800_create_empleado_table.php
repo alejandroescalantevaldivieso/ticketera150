@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('empleado', function (Blueprint $table) {
             $table->char('empleado_codigo',7)->primary();//EPD0001
             $table->string('empleado_nombre',100);
+            $table->string('empleado_apellido_paterno',100);
+            $table->string('empleado_apellido_materno',100);
+            $table->string('empleado_correo',100);
             $table->char('empleado_area_codigo',7);
             $table->char('empleado_empresa_codigo',7);
             $table->enum('empleado_estado',['A','E'])->default('A');
