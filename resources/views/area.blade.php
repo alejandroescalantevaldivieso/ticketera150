@@ -17,10 +17,10 @@
     
                 <input id="txtNombre" type="text" class="w-100 inputBaseUno mb-3" placeholder="Nombre">
     
-                <button id="btnRegistrar" class="botonBaseUno w-100">
+                <button id="btnRegistrar" class="botonBaseUno py-1 w-100">
                     Registrar
                 </button>
-                <button id="btnCerrar" class="botonBaseUno w-100 mt-2">
+                <button id="btnCerrar" class="botonBaseUno py-1 w-100 mt-2">
                     Cerrar
                 </button>
             </div>
@@ -31,19 +31,19 @@
     <div class="container mt-4">     
         <div class="contenedorBotones row mt-4">
             <div class="col-12 col-md-4 col-lg-2 text-center mb-1">
-                <button id="btnVerActivos" class="botonBaseUno me-2 w-100 ">
+                <button id="btnVerActivos" class="botonBaseUno py-1 me-2 w-100 ">
                     Activos
                 </button>
 
             </div>
             <div class="col-12 col-md-4 col-lg-2 text-center mb-1">
-                <button id="btnVerEliminados" class="botonBaseUno me-2 w-100">
+                <button id="btnVerEliminados" class="botonBaseUno py-1 me-2 w-100">
                     Eliminados
                 </button>
 
             </div>
             <div class="col-12 col-md-4 col-lg-2 text-center mb-3">
-                <button id="btnMostrarRegistrar" class="botonBaseUno w-100">
+                <button id="btnMostrarRegistrar" class="botonBaseUno py-1 w-100">
                     Registrar
                 </button>
 

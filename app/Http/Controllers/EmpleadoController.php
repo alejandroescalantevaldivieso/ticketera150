@@ -55,7 +55,7 @@ class EmpleadoController
         try{
             $this->empleadoService->recuperar($request->input('empleado_codigo'));
 
-            return response()->json(['exito'=>true,'mensaje'=>'Empleado eliminado']);
+            return response()->json(['exito'=>true,'mensaje'=>'Empleado recuperado']);
         }catch(\Exception $e){
             Log::error($e->getMessage());
             return response()->json(['exito'=>false,'mensaje'=>'Error en recuperar']);

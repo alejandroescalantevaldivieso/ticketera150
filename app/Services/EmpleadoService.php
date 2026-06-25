@@ -7,6 +7,7 @@ class EmpleadoService{
 
     public function registrar(array $empleado){
         return Empleado::create($empleado);
+        
     }
     public function actualizar(array $empleado){
         return Empleado::where('empleado_codigo',$empleado['empleado_codigo'])->update($empleado);
@@ -22,7 +23,8 @@ class EmpleadoService{
         return Empleado::with(['area', 'empresa'])->where('empleado_estado', 'A')->get();
     }
     public function listarEliminado(){
-        return Empleado::where('empleado_estado','E')->get();
+        // return Empleado::where('empleado_estado','E')->get();
+        return Empleado::with(['area','empresa'])->where('empleado_estado','E')->get();
     }
     public function ultimoCodigo(){
         return generarCodigo('EPD',Empleado::class,'empleado_codigo');

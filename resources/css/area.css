@@ -40,22 +40,6 @@ html, body {
 }
 
 
-/* botones base */
-.botonBaseUno{
-    width: 100px;
-    background-color: #005D75;
-    color: white;
-    border: none;
-    padding: 8px;   
-    cursor: pointer;    
-}
-
-.botonBaseUno:hover{
-    background-color: #1E3666;
-    transform: translateY(-4px);
-}
-
-  
 /* 
 =================
 Tabla 

@@ -8,9 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
     document.getElementById("btnCerrarModuloEmpresa").addEventListener('click', function () {
         toggleEmpresa();
     })
@@ -19,9 +16,11 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     document.getElementById("btnCerrarModuloEmpleado").addEventListener('click', function () {
         toggleEmpleado();
+        limpiar();
     })
     document.getElementById("btnMostrarModuloRegistrarEmpleado").addEventListener('click', function () {
         toggleEmpleado();
+        ultimoCodigo();
     })
     document.getElementById("btnMostrarModuloArea").addEventListener('click', function () {
         toggleArea();
@@ -29,10 +28,17 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("btnMostrarModuloEmpresa").addEventListener('click', function () {
         toggleEmpresa();
     })
-
-    listar();
+    document.getElementById("btnActivo").addEventListener('click',function(){
+        ocultarTabla(false,true);
+    })
+    document.getElementById("btnEliminado").addEventListener('click',function(){
+        ocultarTabla(true,false);
+    })
     listarArea();
     listarEmpresa();
+    listar();
+    listarEliminado();
+    ocultarTabla(false,true);
 })
 async function registrar() {
     // Obtener boton
@@ -76,17 +82,56 @@ async function registrar() {
 
         // Actualizar
     } else if (btnEmpleadoRegistrar.innerText == "Actualizar") {
+        const respuesta = await enviarFetch("/empleado/actualizar",Empleado);
 
+        if(respuesta.exito == true){
+            alerta(respuesta.mensaje, true);
+            limpiar();
+            toggleEmpleado();
+            listar();
+        }else{
+            alerta(respuesta.mensaje, false);
+        }
     }
 }
-async function actualizar() {
+async function actualizar(Empleado) {
+    // Obtener el boton de registrar
+    const btnEmpleadoRegistrar = document.getElementById("btnEmpleadoRegistrar");
+    btnEmpleadoRegistrar.innerText = "Actualizar";
 
+    toggleEmpleado();
+
+    document.getElementById("txtEmpleadoCodigo").value = Empleado.empleado_codigo;
+    document.getElementById("txtEmpleadoNombre").value =  Empleado.empleado_nombre;
+    document.getElementById("txtEmpleadoApellidoPaterno").value = Empleado.empleado_apellido_paterno;
+    document.getElementById("txtEmpleadoApellidoMaterno").value = Empleado.empleado_apellido_materno;
+    document.getElementById("txtEmpleadoCorreo").value = Empleado.empleado_correo;
+    document.getElementById("txtAreaCodigo").value = Empleado.area.area_codigo;
+    document.getElementById("txtAreaNombre").value = Empleado.area.area_nombre;
+    document.getElementById("txtEmpresaCodigo").value = Empleado.empresa.empresa_codigo;
+    document.getElementById("txtEmpresaNombre").value = Empleado.empresa.empresa_nombre;
 }
-async function eliminar() {
-
+async function eliminar(Empleado) {
+    const respuesta = await enviarFetch("/empleado/eliminar",Empleado);
+    
+    if(respuesta.exito == true){
+        alerta(respuesta.mensaje, true);
+        listar();
+        listarEliminado();
+    }else{
+        alerta(respuesta.mensaje, false);
+    }
 }
-async function recuperar() {
+async function recuperar(Empleado) {
+    const respuesta = await enviarFetch("/empleado/recuperar",Empleado);
 
+    if(respuesta.exito == true){
+        alerta(respuesta.mensaje,true);
+        listar();
+        listarEliminado();
+    }else{
+        alerta(respuesta.mensaje,false);
+    }
 }
 async function listar() {
     // Enviar peticion
@@ -127,11 +172,38 @@ async function listar() {
             btnEliminar.addEventListener('click',function(){eliminar(Empleados[i])});
         }
     }else{
-
+        alerta(respuesta.mensaje,false);
     }
 }
 async function listarEliminado() {
+    const respuesta = await enviarFetch("/empleado/listarEliminado");
 
+    const tbody = document.querySelector("#tblEmpleadoEliminado tbody");
+    tbody.innerHTML = "";
+
+    if(respuesta.exito == true){
+        const Empleado = respuesta.mensaje;
+
+        for(let i = Empleado.length -1; i>=0; i--){
+            const fila = tbody.insertRow();
+
+            fila.insertCell().innerText = Empleado[i].empleado_codigo;
+            fila.insertCell().innerText = Empleado[i].empleado_nombre;
+            fila.insertCell().innerText = Empleado[i].empleado_apellido_paterno;
+            fila.insertCell().innerText = Empleado[i].empleado_apellido_materno;
+            fila.insertCell().innerText = Empleado[i].empleado_correo;
+            fila.insertCell().innerText = Empleado[i].area.area_codigo;
+            fila.insertCell().innerText = Empleado[i].area.area_nombre;
+            fila.insertCell().innerText = Empleado[i].empresa.empresa_codigo;
+            fila.insertCell().innerText = Empleado[i].empresa.empresa_nombre;
+
+            // boton recuperar
+            const btnRecuperar = fila.insertCell();
+            btnRecuperar.innerHTML = "<img src='/imagen/iconoRecuperar.png'>";
+            btnRecuperar.addEventListener('click',function(){recuperar(Empleado[i])});
+        }
+
+    }
 }
 async function ultimoCodigo() {
     // Obtener campo 
@@ -146,8 +218,21 @@ async function ultimoCodigo() {
         alerta(respuesta.mensaje, false);
     }
 }
-async function toggleTabla(tablaEmpleado, tablaEmpleadoEliminado) {
+async function ocultarTabla(tablaEmpleado, tablaEmpleadoEliminado) {
+    const tblEmpleado = document.querySelector(".tblEmpleado");
+    const tblEmpleadoEliminado = document.querySelector(".tblEmpleadoEliminado");
 
+    if(tablaEmpleado){
+        tblEmpleado.classList.add("ocultar");
+    }else{
+        tblEmpleado.classList.remove("ocultar");
+    }
+
+    if(tablaEmpleadoEliminado){
+        tblEmpleadoEliminado.classList.add("ocultar");
+    }else{
+        tblEmpleadoEliminado.classList.remove("ocultar");
+    }
 }
 function limpiar() {
     // Obtener boton
@@ -259,8 +344,7 @@ function toggleArea() {
     const btnCerrar = document.querySelector(".moduloArea");
     btnCerrar.classList.toggle("ocultar");
 }
-function toggleEmpleado() {
-    ultimoCodigo();
+function toggleEmpleado() {    
     // Obtener modulo
     const btnCerrar = document.querySelector(".contenedorGeneral");
     btnCerrar.classList.toggle("ocultar");

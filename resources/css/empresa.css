@@ -8,18 +8,6 @@ html, body {
 }
 
 
-/* ========== Botones ==========  */
-.botonBaseUno{    
-    background-color: #005D75;
-    color: white;   
-    padding: 8px;   
-    cursor: pointer;    
-}
-.botonBaseUno:hover{
-    background-color: #1E3666;
-    transform: translateY(-4px);
-}
-
 /* ========== Tablas ==========  */
 .tablaBaseUno td:nth-child(3),
 .tablaBaseUno td:nth-child(4){

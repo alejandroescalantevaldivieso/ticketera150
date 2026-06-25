@@ -22,10 +22,10 @@
                     <input id="txtNombre" class="w-100 inputBaseUno" type="text" placeholder="Nombre">
                 </div>
                 <div class="col-12 mb-1">
-                    <button id="btnRegistrar" class="w-100 botonBaseUno">Registrar</button>
+                    <button id="btnRegistrar" class="w-100 botonBaseUno py-1">Registrar</button>
                 </div>
                 <div class="col-12 mb-1">
-                    <button id="btnCerrar" class="w-100 botonBaseUno">Cerrar</button>
+                    <button id="btnCerrar" class="w-100 botonBaseUno py-1">Cerrar</button>
                 </div>
             </div>
         </div>
@@ -36,13 +36,13 @@
         <div class="contenedorBotones mt-5">
             <div class="row mt-4">
                 <div class="col-12 col-md-4 col-lg-2 mb-2">
-                    <button id="btnActivos" class="botonBaseUno w-100">Activos</button>
+                    <button id="btnActivos" class="botonBaseUno py-1 w-100">Activos</button>
                 </div>
                 <div class="col-12 col-md-4 col-lg-2 mb-2 ">
-                    <button id="btnEliminado" class="botonBaseUno w-100">Eliminados</button>
+                    <button id="btnEliminado" class="botonBaseUno py-1 w-100">Eliminados</button>
                 </div>
                 <div class="col-12 col-md-4 col-lg-2 mb-2 ">
-                    <button id="btnMostrarModuloRegistrar" class="botonBaseUno w-100">Registrar</button>
+                    <button id="btnMostrarModuloRegistrar" class="botonBaseUno py-1 w-100">Registrar</button>
                 </div>
             </div>
         </div>

@@ -27,7 +27,7 @@ class EmpleadoRegistrarRequest extends FormRequest
             'empleado_nombre' => 'required|string',
             'empleado_apellido_paterno' => 'required|string',
             'empleado_apellido_materno' => 'required|string',
-            'empleado_correo' => 'required|string',
+            'empleado_correo' => 'required|string|email|unique:empleado,empleado_correo',
             'empleado_area_codigo' => 'required|max:7|string',
             'empleado_empresa_codigo' => 'required|max:7|string',
         ];
@@ -35,10 +35,10 @@ class EmpleadoRegistrarRequest extends FormRequest
 
     public function messages():array{
         return[
-            'empleado_nombre' => 'El nombre es requerido',
-            'empleado_apellido_paterno' => 'El apellido paterno es obligatorio',
-            'empleado_apellido_materno' => 'El apellido materno es obligatorio',
-            'empleado_correo' => 'El correo es obligatorio'
+            'empleado_nombre.required' => 'El nombre es requerido',
+            'empleado_apellido_paterno.required' => 'El apellido paterno es obligatorio',
+            'empleado_apellido_materno.required' => 'El apellido materno es obligatorio',
+            'empleado_correo.required' => 'El correo es obligatorio'
         ];
     }
 }

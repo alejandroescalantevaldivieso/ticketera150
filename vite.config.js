@@ -19,7 +19,9 @@ export default defineConfig({
                 'resources/css/empresa.css',
                 'resources/js/empresa.js',
                 'resources/css/empleado.css',
-                'resources/js/empleado.js'
+                'resources/js/empleado.js',
+                'resources/css/usuario.css',
+                'resources/js/usuario.js'
             ],
             refresh: true,
         }),

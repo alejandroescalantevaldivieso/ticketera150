@@ -8,7 +8,7 @@ class Rol extends Model
 {
     protected $table = "rol";
     protected $primaryKey = "rol_codigo";
-    protected $keyType = "char";
+    protected $keyType = "string";
 
     public $incrementing = false;
 

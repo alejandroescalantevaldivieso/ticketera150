@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\EmpresaController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\UsuarioController;
 
 Route::get('/', function () {return view('login');});
 Route::get('/principal',function(){return view('principal');});
@@ -37,3 +39,16 @@ Route::post('/empleado/listar',[EmpleadoController::class, 'listar']);
 Route::post('/empleado/listarEliminado',[EmpleadoController::class, 'listarEliminado']);
 Route::post('/empleado/ultimoCodigo',[EmpleadoController::class, 'ultimoCodigo']);
 Route::get('/empleado/vista',[EmpleadoController::class, 'vista']);
+
+// Rol
+Route::post('/rol/listar',[RolController::class,'listar']);
+
+// Usuario
+Route::post('/usuario/registrar',[UsuarioController::class, 'registrar']);
+Route::post('/usuario/actualizar',[UsuarioController::class, 'actualizar']);
+Route::post('/usuario/eliminar',[UsuarioController::class, 'eliminar']);
+Route::post('/usuario/recuperar',[UsuarioController::class, 'recuperar']);
+Route::post('/usuario/listar',[UsuarioController::class, 'listar']);
+Route::post('/usuario/listarEliminado',[UsuarioController::class, 'listarEliminado']);
+Route::post('/usuario/ultimoCodigo',[UsuarioController::class, 'ultimoCodigo']);
+Route::get('/usuario/vista',[UsuarioController::class, 'vista']);
