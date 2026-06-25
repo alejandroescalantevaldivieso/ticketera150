@@ -22,6 +22,11 @@
     height: 100%;   
 }
 
+*:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
 
 
 

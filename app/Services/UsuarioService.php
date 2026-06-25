@@ -11,7 +11,7 @@ class UsuarioService{
         return Usuario::create($usuario);
     }
     public function actualizar(array $usuario){
-        $usuario['usuario_contrasena'] = Hash::make($usuario['usuario_contrasena']);
+        // Actualizar todo menos la contraseña       
         return Usuario::where('usuario_codigo',$usuario['usuario_codigo'])->update($usuario);
     }
     public function eliminar(string $usuario_codigo){
@@ -30,16 +30,19 @@ class UsuarioService{
         return generarCodigo('USU',Usuario::class,'usuario_codigo');
     }
     public function validar(array $usuario){
-        $usuarioEncontrado = Usuario::where('usuario_nombre',$usuario['usuario_nombre'])->first();
+        $usuarioEncontrado = Usuario::with('rol')->where('usuario_nombre',$usuario['usuario_nombre'])->first();
 
-        if(!$usuarioEncontrado){
-            return [];
+        if($usuarioEncontrado == null){
+            return null;
         }
-        
         if( Hash::check( $usuario['usuario_contrasena'], $usuarioEncontrado->usuario_contrasena ) ){
             return $usuarioEncontrado;
         }
-            return [];
+            return null;
         
+    }
+    public function cambiarContrasena(array $usuario){
+        $usuario['usuario_contrasena'] = Hash::make($usuario['usuario_contrasena']);
+        return Usuario::where('usuario_codigo',$usuario['usuario_codigo'])->update(['usuario_contrasena'=>$usuario['usuario_contrasena']]);
     }
 }

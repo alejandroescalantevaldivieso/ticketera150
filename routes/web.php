@@ -51,4 +51,7 @@ Route::post('/usuario/recuperar',[UsuarioController::class, 'recuperar']);
 Route::post('/usuario/listar',[UsuarioController::class, 'listar']);
 Route::post('/usuario/listarEliminado',[UsuarioController::class, 'listarEliminado']);
 Route::post('/usuario/ultimoCodigo',[UsuarioController::class, 'ultimoCodigo']);
+Route::post('/usuario/cambiarContrasena',[UsuarioController::class, 'cambiarContrasena']);
+Route::post('/usuario/validar',[UsuarioController::class, 'validar']);
+
 Route::get('/usuario/vista',[UsuarioController::class, 'vista']);

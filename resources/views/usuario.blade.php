@@ -11,7 +11,7 @@
 @section('content')
 
 <div class="fondoModuloRegistrar ocultar">
-    <div class="moduloRegistrarUsuario">
+    <div class="moduloRegistrarUsuario">        
         <div class="row">          
 
 <!-- ============ datos usuario ============ -->
@@ -119,8 +119,23 @@
     </div>
 <!-- ================== Contenedor de tablas ================== -->
     <div class="row contenedorTabla">
-        <div class="table-responsive">
-            <table class="tablaBaseUno">
+        <div class="table-responsive tblUsuario">
+            <table id="tblUsuario" class="tablaBaseUno">
+                <thead>
+                    <tr>
+                        <th class="px-5">Código</th>
+                        <th class="px-5">Nombre</th>
+                        <th class="px-5">Codigo Empleado</th>
+                        <th class="px-5">Codigo Rol</th>
+                    </tr>
+                </thead>
+                <tbody>                            
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive tblUsuarioEliminado">
+            <h1>Usuarios eliminados</h1>
+            <table id="tblUsuarioEliminado" class="tablaBaseUno">
                 <thead>
                     <tr>
                         <th class="px-5">Código</th>

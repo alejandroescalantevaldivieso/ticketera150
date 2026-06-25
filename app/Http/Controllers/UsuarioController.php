@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UsuarioRegistrarRequest;
 use App\Http\Requests\UsuarioActualizarRequest;
+use App\Http\Requests\UsuarioCambiarContrasenaRequest;
+use App\Http\Requests\UsuarioValidarCredencialRequest;
 use App\Services\UsuarioService;
 
 use Illuminate\Support\Facades\Log;
@@ -90,18 +92,27 @@ class UsuarioController
         }
 
     }
-    public function validar(Request $request){
+    public function validar(UsuarioValidarCredencialRequest $request){
         try{
-            $usuario = $this->usuarioService->validar($request);
+            $usuario = $this->usuarioService->validar($request->validated());
             
-            if($usuario->isEmpty()){
+            if($usuario == null){
                 return response()->json(['exito'=>false, 'mensaje'=>'Credenciales invalidas']);
             }
 
-            return response()->json(['exito'=>true, 'mensaje'=>'Bienvenido']);
+            return response()->json(['exito'=>true, 'mensaje'=>'Bienvenido', 'usuario'=>$usuario]);
         }catch(\Exception $e){
             Log::error($e->getMessage());
             return response()->json(['exito'=>false, 'mensaje'=>'Error al registrar']);
+        }
+    }
+    public function cambiarContrasena(UsuarioCambiarContrasenaRequest $request){
+        try{
+            $this->usuarioService->cambiarContrasena($request->validated());
+            return response()->json(['exito'=>true,'mensaje'=>'Contraseña cambiada']);
+        }catch(\Exception $e){
+            Log::error($e->getMessage());
+            return response()->json(['exito'=>false, 'mensaje'=>'Error al cambiar contraseña']);
         }
     }
     public function vista(){

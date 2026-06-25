@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('usuario_contrasena');
             $table->char('usuario_empleado_codigo',7)->unique();
             $table->char('usuario_rol_codigo',7);
+            $table->enum('usuario_estado',['A','E'])->default('A');
             $table->timestamps();
 
             $table->foreign('usuario_empleado_codigo')->references('empleado_codigo')->on('empleado');

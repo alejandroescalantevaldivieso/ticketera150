@@ -108,14 +108,19 @@ body #btnHamburguesa{
 
 
 
-
-
 /* =============================================== */
 
 .contenedorMenu{
     width: 200px;
 }
 
-.contenedor{
-    
+.contenedorBotonSalir{
+    position: fixed;
+    z-index: 100;
+    width: 100px;
+    left: 25px;
+    bottom: 50px;
+}
+#btnSalir{
+    background-color: #0000003e;
 }

@@ -26,8 +26,10 @@ class UsuarioActualizarRequest extends FormRequest
     {
         return [
             'usuario_codigo' => 'required|string|max:7',
-            'usuario_nombre' => 'required|unique:usuario,usuario_nombre',
-            'usuario_contrasena' => 'required',
+            'usuario_nombre' => [
+                'required',
+                Rule::unique('usuario','usuario_nombre')->ignore($this->usuario_codigo, 'usuario_codigo')
+            ],    
             'usuario_empleado_codigo' => [
                 'required',
                 'max:7',
